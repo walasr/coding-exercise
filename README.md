@@ -1,5 +1,5 @@
 # coding-exercise
-This project represent a [coding excerise for Expedia] (https://gist.github.com/Jun-Dai/6101aadf80e47e6c46a3), the live version is deployed on [heroku](https://walaa-test-mvc-sample.herokuapp.com/)
+This project represent a [coding excerise for Expedia](https://gist.github.com/Jun-Dai/6101aadf80e47e6c46a3), the live version is deployed on [heroku](https://walaa-test-mvc-sample.herokuapp.com/)
 
 #search engin for latest deals based on the following 
 1- Location 
