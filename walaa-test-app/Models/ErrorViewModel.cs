@@ -1,5 +1,3 @@
-using System;
-
 namespace Expedia.HotelsOffers.Models
 {
     public class ErrorViewModel
