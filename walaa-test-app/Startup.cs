@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Expedia.HotelsOffers.Integration;
 
-namespace walaa_test_app
+namespace Expedia.HotelsOffers
 {
     public class Startup
     {
@@ -22,6 +23,7 @@ namespace walaa_test_app
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<IHotelService, HotelService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

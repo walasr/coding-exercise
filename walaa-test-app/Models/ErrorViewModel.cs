@@ -1,6 +1,6 @@
 using System;
 
-namespace walaa_test_app.Models
+namespace Expedia.HotelsOffers.Models
 {
     public class ErrorViewModel
     {

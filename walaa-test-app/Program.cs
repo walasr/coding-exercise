@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace walaa_test_app
+namespace Expedia.HotelsOffers
 {
     public class Program
     {

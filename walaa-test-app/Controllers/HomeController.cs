@@ -4,34 +4,48 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using walaa_test_app.Models;
+using Expedia.HotelsOffers.Models;
+using Expedia.HotelsOffers.Integration;
 
-namespace walaa_test_app.Controllers
+namespace Expedia.HotelsOffers.Controllers
 {
     public class HomeController : Controller
     {
+        #region Private Members
+            private IHotelService hotelServiceIntegrator;
+        #endregion
+
+        #region Constructors
+        public HomeController(IHotelService hotelServiceIntegrator)
+        {
+            this.hotelServiceIntegrator = hotelServiceIntegrator;
+        }
+        #endregion
+
+        #region Action Methods
+        /// <summary>
+        /// Home Get Action view empty search criteria
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
-            return View();
+            return View(new Search());
         }
-
-        public IActionResult About()
+        /// <summary>
+        /// Conduct search and return result
+        /// </summary>
+        /// <param name="search"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult Index(Search search)
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+           search.Hotels= hotelServiceIntegrator.SearchDeals(search.Criteria)?.Result?.Offers?.Hotel;
+            return View(search);
         }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        #endregion
     }
 }
